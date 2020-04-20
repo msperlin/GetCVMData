@@ -77,14 +77,13 @@ get_dfp_data <- function(companies_cvm_codes = NULL,
   df_cvm <- get_info_companies(cache_folder)
 
   # start download of files
-  ## get docs
-
   l_args <- list(type_doc = type_docs,
                  companies_cvm_codes = rep(list(companies_cvm_codes), length(type_docs)),
                  type_format = rep(list(type_format), length(type_docs)),
                  first_year = first_year,
                  last_year = last_year,
                  cache_folder = cache_folder,
+                 use_memoise = use_memoise,
                  clean_data = clean_data)
 
   df_dfp <- dplyr::bind_rows(purrr::pmap(.l = l_args,

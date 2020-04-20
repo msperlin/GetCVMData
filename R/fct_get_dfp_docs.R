@@ -10,7 +10,9 @@
 #' # no example
 #' }
 get_dfp_docs <- function(companies_cvm_codes,
-                         type_docs, type_format, first_year, last_year, clean_data, cache_folder) {
+                         type_docs, type_format, first_year, last_year, clean_data,
+                         use_memoise,
+                         cache_folder) {
 
   message('\nDownloading ', type_docs)
   ftp_url <- paste0('http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/',
@@ -31,9 +33,12 @@ get_dfp_docs <- function(companies_cvm_codes,
   message('\tFound ', nrow(df_ftp), ' files at ftp')
 
   # setup memoise
-  mem_cache <- memoise::cache_filesystem(path = file.path(cache_folder, 'mem_cache'))
-  mem_download_read_dfp_zip_file <- memoise::memoise(download_read_dfp_zip_file,
-                                                     cache = mem_cache)
+  if (use_memoise) {
+    mem_cache <- memoise::cache_filesystem(path = file.path(cache_folder, 'mem_cache'))
+    download_read_dfp_zip_file <- memoise::memoise(download_read_dfp_zip_file,
+                                                   cache = mem_cache)
+  }
+
 
   df_doc <- dplyr::bind_rows(purrr::map(df_ftp$full_links,
                                         download_read_dfp_zip_file,
