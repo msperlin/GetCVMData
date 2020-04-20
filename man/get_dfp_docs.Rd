@@ -6,7 +6,7 @@
 \usage{
 get_dfp_docs(
   companies_cvm_codes,
-  type_doc,
+  type_docs,
   type_format,
   first_year,
   last_year,
@@ -16,6 +16,13 @@ get_dfp_docs(
 }
 \arguments{
 \item{companies_cvm_codes}{Numeric CVM code  of companies. IF set to NULL (default), will return data for all available companies.}
+
+\item{type_docs}{Type of financial documents: BPA = Assets (ativos), BPP = Liabilities (passivo),
+DRE = income statement (demonstrativo de resultados),
+DFC_MD = cash flow by direct method (fluxo de caixa pelo metodo direto),
+DFC_MI = cash flow by indirect method (fluxo de caixa pelo metodo indireto),
+DMPL = equity mutations (mutacoes do patrimonio liquido),
+DVA = value added report (desmonstrativo de valor agregado)}
 
 \item{type_format}{Type of format of document (con = consolidated, ind = individual). Default = both (con|ind)}
 

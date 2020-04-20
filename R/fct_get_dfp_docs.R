@@ -10,11 +10,11 @@
 #' # no example
 #' }
 get_dfp_docs <- function(companies_cvm_codes,
-                         type_doc, type_format, first_year, last_year, clean_data, cache_folder) {
+                         type_docs, type_format, first_year, last_year, clean_data, cache_folder) {
 
-  message('\nDownloading ', type_doc)
+  message('\nDownloading ', type_docs)
   ftp_url <- paste0('http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/',
-                    type_doc ,
+                    type_docs ,
                     '/DADOS/')
   df_ftp_full <- get_contents_ftp(ftp_url)
 

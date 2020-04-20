@@ -13,7 +13,7 @@ my_download_file(dl_link, dest_file, max_dl_tries = 10, be_quiet = TRUE)
 
 \item{max_dl_tries}{Maximum number of attempts}
 
-\item{be_quite}{Be quiet?}
+\item{be_quiet}{Be quiet?}
 }
 \value{
 Status (TRUE = OK)

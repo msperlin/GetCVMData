@@ -5,7 +5,7 @@
 #' @param dl_link Link to file
 #' @param dest_file Local file destination
 #' @param max_dl_tries Maximum number of attempts
-#' @param be_quite Be quiet?
+#' @param be_quiet Be quiet?
 #'
 #' @return Status (TRUE = OK)
 #' @export
