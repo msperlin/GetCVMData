@@ -65,7 +65,7 @@ get_itr_data <- function(companies_cvm_codes = NULL,
 
 
   # filter dates
-  idx <- df_ftp_itr_full$year_files >= first_year & df_ftp_itr_full$year_files <= last_year
+  idx <- (df_ftp_itr_full$year_files >= first_year) & df_ftp_itr_full$year_files <= last_year
   df_ftp_itr <- df_ftp_itr_full[idx, ]
 
   if (nrow(df_ftp_itr) == 0 ) {

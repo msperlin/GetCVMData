@@ -17,7 +17,10 @@ get_contents_ftp <- function(ftp_url) {
     rvest::html_nodes('td') %>%
     rvest::html_text()
 
-  idx <- stringr::str_detect(all_links, 'cia_aberta|/')
+  idx <- stringr::str_detect(
+    stringr::str_to_lower(all_links), 'cia_aberta|/'
+    )
+
   all_links  <- all_links[idx]
 
   full_links <- paste0(ftp_url, all_links)
@@ -26,7 +29,8 @@ get_contents_ftp <- function(ftp_url) {
 
   df_out <- dplyr::tibble(file_name = all_links,
                           full_links,
-                          year_files)
+                          year_files) %>%
+    dplyr::arrange(year_files)
 
   return(df_out)
 
