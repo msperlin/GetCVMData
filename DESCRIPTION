@@ -1,19 +1,28 @@
-Package: GetDFPData
-Title: Reading Annual Financial Reports from Bovespa's DFP, FRE and FCA System 
-Version: 1.5.2
-Date: 2019-07-16
+Package: GetCVMData
+Title: Reading Annual and Quarterly Financial Reports from CVM 
+Version: 0.5
+Date: 2020-04-20
 Authors@R: person("Marcelo", "Perlin", email = "marceloperlin@gmail.com", role = c("aut", "cre"))
-Description: Reads annual financial reports including assets, liabilities, dividends history, stockholder composition and much more from Bovespa's DFP, FRE and FCA systems <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>.
- These are web based interfaces for all financial reports of companies traded at Bovespa. The package is specially designed for large scale data importation, keeping a tabular (long) structure for easier processing.  
+Description: Reads annual and quarterly financial reports from companies traded at B3, the Brasilian exchange <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>. All data is downloaded and imported from CVM's ftp site <http://dados.cvm.gov.br/dados/CIA_ABERTA/>.
 Depends:
-    R (>= 3.3.0)
-Imports: stringr, XML, dplyr, readr, reshape2, tibble, xlsx, stats, curl, lubridate
+    R (>= 3.5.0)
+Imports: 
+    stringr,
+    xml2,
+    dplyr,
+    readr,
+    curl,
+    lubridate,
+    magrittr,
+    purrr,
+    memoise,
+    rvest
 ByteCompile: true
 License: GPL-2
-BugReports: https://github.com/msperlin/GetDFPData/issues
-URL: https://github.com/msperlin/GetDFPData/
+BugReports: https://github.com/msperlin/GetCVMData/issues
+URL: https://github.com/msperlin/GetCVMData/
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Suggests: knitr,
     rmarkdown,
     testthat,

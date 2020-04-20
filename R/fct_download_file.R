@@ -1,23 +1,27 @@
 #' Downloads files from the internet
 #'
-#' @param dl.link Link to file
-#' @param dest.file = Destination, as local file
-#' @inheritParams gdfpd.GetDFPData
-#' @return Nothing
+#' This function will make k attempts of download and use different download options according to operating system.
+#'
+#' @param dl_link Link to file
+#' @param dest_file Local file destination
+#' @param max_dl_tries Maximum number of attempts
+#' @param be_quite Be quiet?
+#'
+#' @return Status (TRUE = OK)
 #' @export
 #' @examples
 #'
-#' my.url <- paste0('http://www.rad.cvm.gov.br/enetconsulta/',
+#' my_url <- paste0('http://www.rad.cvm.gov.br/enetconsulta/',
 #'                   'frmDownloadDocumento.aspx?CodigoInstituicao=2',
 #'                   '&NumeroSequencialDocumento=46133')
 #'
 #' \dontrun{ # keep CHECK fast
-#' dl.status <- gdfpd.download.file(my.url, 'tempfile.zip', 10)
+#' dl_status <- my_download_file(my_url, 'tempfile.zip', 10)
 #' }
-my_download_file <- function(dl_link, dest_file, max_dl_tries, be_quiet = TRUE) {
+my_download_file <- function(dl_link, dest_file, max_dl_tries = 10, be_quiet = TRUE) {
 
   Sys.sleep(0.5)
-  
+
   if (file.exists(dest_file)) {
     message('\tFile already exists', appendLF = TRUE)
     return(TRUE)
@@ -51,13 +55,13 @@ my_download_file <- function(dl_link, dest_file, max_dl_tries, be_quiet = TRUE) 
                              quiet = TRUE,
                              mode = 'wb')
       }
-      
-      
+
+
 
     })
 
     if (file.size(dest_file) < 10  ){
-      message(paste0('\t\tError in downloading. Attempt ',i_try,'/', max_dl_tries), 
+      message(paste0('\t\tError in downloading. Attempt ',i_try,'/', max_dl_tries),
               appendLF = FALSE)
       Sys.sleep(1)
     } else {
