@@ -65,7 +65,7 @@ my_download_file <- function(dl_link, dest_file, max_dl_tries = 10, be_quiet = T
               appendLF = FALSE)
       Sys.sleep(1)
     } else {
-      message('\tSucess', appendLF = TRUE)
+      message('\tSuccess', appendLF = TRUE)
       return(TRUE)
     }
 

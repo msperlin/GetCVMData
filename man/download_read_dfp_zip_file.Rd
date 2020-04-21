@@ -17,7 +17,7 @@ download_read_dfp_zip_file(
 
 \item{companies_cvm_codes}{Numeric CVM code  of companies. IF set to NULL (default), will return data for all available companies.}
 
-\item{type_format}{Type of format of document (con = consolidated, ind = individual). Default = both (con|ind)}
+\item{type_format}{Type of format of document (con = consolidated, ind = individual). Default = c('con', 'ind')}
 
 \item{cache_folder}{Path of cache folder to keep memoise and zip files}
 

@@ -8,8 +8,8 @@ get_itr_data(
   companies_cvm_codes = NULL,
   first_year = 2010,
   last_year = lubridate::year(Sys.Date()),
-  type_docs = "BPA|BPP|DRE",
-  type_format = "con|ind",
+  type_docs = c("BPA", "BPP", "DRE"),
+  type_format = c("con", "ind"),
   clean_data = TRUE,
   use_memoise = FALSE,
   cache_folder = "gcvmd_cache"
@@ -22,19 +22,20 @@ get_itr_data(
 
 \item{last_year}{Last year of selected data}
 
-\item{type_docs}{Type of financial documents: BPA = Assets (ativos), BPP = Liabilities (passivo),
-DRE = income statement (demonstrativo de resultados),
-DFC_MD = cash flow by direct method (fluxo de caixa pelo metodo direto),
-DFC_MI = cash flow by indirect method (fluxo de caixa pelo metodo indireto),
-DMPL = equity mutations (mutacoes do patrimonio liquido),
-DVA = value added report (desmonstrativo de valor agregado)}
+\item{type_docs}{Type of financial documents. E.g. c('DRE', 'BPA'). Definitions: '*' = fetch all docs,  'BPA' = Assets (ativos),
+'BPP' = Liabilities (passivo),
+'DRE' = income statement (demonstrativo de resultados),
+'DFC_MD' = cash flow by direct method (fluxo de caixa pelo metodo direto),
+'DFC_MI' = cash flow by indirect method (fluxo de caixa pelo metodo indireto),
+'DMPL' = equity mutations (mutacoes do patrimonio liquido),
+'DVA' = value added report (desmonstrativo de valor agregado)}
 
-\item{type_format}{Type of format of document (con = consolidated, ind = individual). Default = both (con|ind)}
+\item{type_format}{Type of format of document (con = consolidated, ind = individual). Default = c('con', 'ind')}
 
 \item{clean_data}{Clean data or return raw data? See read_dfp|itr_csv() for details}
 
 \item{use_memoise}{Use memoise caching? If no (default), the function will read all .csv files. If yes, will use package
-memoise for caching results (code speed increases significantly)}
+memoise for caching results (execution speed increases significantly)}
 
 \item{cache_folder}{Path of cache folder to keep memoise and zip files}
 }

@@ -17,8 +17,8 @@
 get_itr_data <- function(companies_cvm_codes = NULL,
                          first_year = 2010,
                          last_year = lubridate::year(Sys.Date()),
-                         type_docs = 'BPA|BPP|DRE',
-                         type_format = 'con|ind',
+                         type_docs = c('BPA', 'BPP', 'DRE'),
+                         type_format = c('con', 'ind'),
                          clean_data = TRUE,
                          use_memoise = FALSE,
                          cache_folder = 'gcvmd_cache') {
@@ -33,8 +33,6 @@ get_itr_data <- function(companies_cvm_codes = NULL,
 
   if (type_docs == '*') {
     type_docs  <- available_docs
-  } else {
-    type_docs <- stringr::str_split(type_docs, '\\|')[[1]]
   }
 
   idx <- type_docs %in% available_docs
@@ -46,9 +44,6 @@ get_itr_data <- function(companies_cvm_codes = NULL,
 
   available_formats <- c("ind",
                          "con" )
-
-  type_format <- stringr::str_split(type_format, '\\|')[[1]]
-
 
   idx <- type_format %in% available_formats
   if (any(!idx)) {
