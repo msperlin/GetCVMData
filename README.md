@@ -7,7 +7,8 @@ When doing large scale importations, `GetDFPData` fells sluggish due to the pars
 
 `GetCVMData` is lean and fast. Since the data is already parsed in csv files, all the code does is organize the files, download and read. For comparison, all DFP documents, annual financial reports, available in CVM can be imported in less than 1 minute. Additionally, `GetCVMData` can also parse ITR (quarterly) data, which was not available in `GetDFPData`.
 
-However, be aware that the output data is not the same. I kept all original column names from CVM and some information, such as tickers, are not available in `GetCVMData`. 
+However, be aware that the output data is not the same. I kept all original column names from CVM and some information, such as tickers, are not available in `GetCVMData`. Also, know that **the ITR data is accumulated**, meaning that that any account value in Q3, for example, is the sum of Q1, Q2 and Q3. 
+
 
 ## Installation
 
