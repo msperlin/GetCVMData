@@ -64,6 +64,9 @@ download_read_dfp_zip_file <- function(url_in,
 
   message('\t\tGot ', nrow(df_out), ' rows | ', length(unique(df_out$CD_CVM)), ' companies')
 
+  # clean up zip dir
+  unlink(unzip_dir, recursive = TRUE)
+
   return(df_out)
 
 }

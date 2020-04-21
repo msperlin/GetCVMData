@@ -84,6 +84,9 @@ download_read_itr_zip_file <- function(url_in,
           length(unique(df_out$CD_CVM)), ' companies', ' | ',
           length(unique(df_out$DT_FIM_EXERC)), ' fiscal dates')
 
+  # clean up
+  unlink(unzip_dir, recursive = TRUE)
+
 
   return(df_out)
 
