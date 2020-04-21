@@ -24,23 +24,10 @@ read_itr_csv <- function(file_in, clean_data) {
 
   if (clean_data) {
 
-    # filter penultimo cases
-    possible_cases <- sort(unique(df$ORDEM_EXERC))
-
-    idx <- df$ORDEM_EXERC == possible_cases[2]
-    df <- df[idx, ]
+    df <- clean_dfp_itr_data(df, file_in)
 
   }
 
-  # set col for cnpj number
-  unique_cnpj <- unique(df$CNPJ_CIA)
-  number_cnpj <- sapply(unique_cnpj, fix_cnpj)
-
-  idx <- match(df$CNPJ_CIA, unique_cnpj)
-  df$cnpj_number <- number_cnpj[idx]
-
-  # set filename
-  df$source_file <- basename(file_in)
 
   return(df)
 }

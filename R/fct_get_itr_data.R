@@ -31,7 +31,7 @@ get_itr_data <- function(companies_cvm_codes = NULL,
                       "DRE",
                       "DVA" )
 
-  if (type_docs == '*') {
+  if (any(type_docs == '*')) {
     type_docs  <- available_docs
   }
 

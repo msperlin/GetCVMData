@@ -45,7 +45,7 @@ get_dfp_data <- function(companies_cvm_codes = NULL,
                       'DRE',
                       'DVA')
 
-  if (type_docs == '*') {
+  if (any(type_docs == '*')) {
     type_docs  <- available_docs
   }
 
@@ -58,9 +58,6 @@ get_dfp_data <- function(companies_cvm_codes = NULL,
 
   available_formats <- c("ind",
                          "con" )
-
-  type_format <- stringr::str_split(type_format, '\\|')[[1]]
-
 
   idx <- type_format %in% available_formats
   if (any(!idx)) {
