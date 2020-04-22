@@ -24,12 +24,13 @@ get_itr_data <- function(companies_cvm_codes = NULL,
                          cache_folder = 'gcvmd_cache') {
 
   # check args
-  available_docs <- c("BPA",
-                      "BPP",
-                      "DFC",
-                      "DMPL",
-                      "DRE",
-                      "DVA" )
+  available_docs <- c('BPA',
+                      'BPP',
+                      'DFC_MD',
+                      'DFC_MI',
+                      'DMPL',
+                      'DRE',
+                      'DVA')
 
   if (any(type_docs == '*')) {
     type_docs  <- available_docs

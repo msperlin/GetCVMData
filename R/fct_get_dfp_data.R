@@ -12,7 +12,7 @@
 #'                 'DRE' = income statement (demonstrativo de resultados),
 #'                 'DFC_MD' = cash flow by direct method (fluxo de caixa pelo metodo direto),
 #'                 'DFC_MI' = cash flow by indirect method (fluxo de caixa pelo metodo indireto),
-#'                 'DMPL' = equity mutations (mutacoes do patrimonio liquido),
+#'                 'DMPL' = statement of changes in equity (mutacoes do patrimonio liquido),
 #'                 'DVA' = value added report (desmonstrativo de valor agregado)
 #' @param type_format Type of format of document (con = consolidated, ind = individual). Default = c('con', 'ind')
 #' @param clean_data Clean data or return raw data? See read_dfp|itr_csv() for details
